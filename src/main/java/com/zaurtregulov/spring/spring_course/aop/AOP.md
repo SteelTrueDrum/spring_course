@@ -50,5 +50,9 @@ Spring AOP использует **AspectJ Pointcut expression language**.
 **execution(** modifiers-pattern? **return-type-pattern** declaring-type-pattern?)
 **method-name-pattern(parameters-pattern)** throws-pattern? **)**
 
-пример: @Before("execution(public void getBook())")
-
+Пример: 
+- @Before("execution(public void getBook())") → из любого класса с таким методом
+- @Before("execution(public void aop.Library.getBook())") → (из конкретного класса Library)
+- @Before("execution(public void get*())") → (любой класс метод начинающийся с "get...")
+- @Before("execution(public * returnBook())") -> метод с любым возвращаемым типом.
+- @Before("execution(* *())") → метод без параметров с любым возвращаемым типом и именем.

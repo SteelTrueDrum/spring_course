@@ -8,9 +8,15 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(public void com.zaurtregulov.spring.spring_course.aop.UniLibrary.getBook())")
+    @Before("execution(public void getBook(String))")
     public void beforeGetBookAdvice() {
-        System.out.println("beforeGetBookAdvice: попытка получить книгу");
+        System.out.println("beforeGetBookAdvice: попытка получить книгу или журнал");
     }
+
+    @Before("execution(public * returnBook())")
+    public void beforeReturnBookAdvice() {
+        System.out.println("beforeGetBookAdvice: попытка вернуть книгу или журнал");
+    }
+
 
 }
